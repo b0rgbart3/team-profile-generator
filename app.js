@@ -5,6 +5,11 @@
 // Include the necessary npm packages
 // probably will require Inquirer, and fs
 
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const inquirer = require("inquirer");
+
 // setup an array of questions to send to Inquirer
 // This array will include:  Questions about the Manager
 // A prompt about which type of team member they want to add
@@ -12,13 +17,32 @@
 // Questions for each team member will include:  name, position, 
 // email and github name
 
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
-const inquirer = require("inquirer");
+// Rather than assuming there is only one manager - let's ask the user
+// How many managers there are on this project and that way there can
+// be more than one.
 
-let bart = new Manager("bart","b0rgbart3@gmail.com", "b0rgBart3");
-console.log(bart);
+let q1 = {name: "mgrCount",message: "How many managers are there on this project?",
+        default: "1"};
+let q2 = {name: "mgrName",default: "Managers Name"};
+
+let mgrNames = [];
+
+async function main() {
+    let mgrCount = await inquirer.prompt(q1);
+    mgrCount = parseInt(mgrCount.mgrCount); 
+    for (var i =1; i < mgrCount+1; i++) {
+        q2.message = "What is the name of Manager #" + i + "?";
+        let mgrName = await inquirer.prompt(q2);
+        mgrNames.push(mgrName);  // add each manager's Name to an array of manager's Names
+    }
+
+    console.log(mgrNames);
+}
+
+main();
+
+
+
 // const path = require("path");
 // const fs = require("fs");
 
