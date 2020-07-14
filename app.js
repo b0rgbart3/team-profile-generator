@@ -23,6 +23,7 @@ const inquirer = require("inquirer");
 
 let q1 = {name: "employeeCount",message: "\nHow many people are there on this project?",
         default: "1"};
+
 let employeeBasics = [
 { type: "list", name: "role", message:"What is this person's role in the project?", choices: [{name: "manager"},{name: "engineer"},{name: "intern"},]},
 { name: "name", message:"", default: "name", },
