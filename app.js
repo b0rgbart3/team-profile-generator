@@ -23,20 +23,26 @@ const inquirer = require("inquirer");
 
 let q1 = {name: "mgrCount",message: "How many managers are there on this project?",
         default: "1"};
-let q2 = {name: "mgrName",default: "Managers Name"};
+let employeeBasics = [
+{ name: "name", message:"", default: "name", },
+{ name: "email", message: "email", default: ""}, 
+{ name: "github", message: "github", default: "github"}];
 
-let mgrNames = [];
+let mgrs = [];
 
 async function main() {
     let mgrCount = await inquirer.prompt(q1);
     mgrCount = parseInt(mgrCount.mgrCount); 
     for (var i =1; i < mgrCount+1; i++) {
-        q2.message = "What is the name of Manager #" + i + "?";
-        let mgrName = await inquirer.prompt(q2);
-        mgrNames.push(mgrName);  // add each manager's Name to an array of manager's Names
+        employeeBasics[0].message = "What is the name of Manager #" + i + "?";
+        employeeBasics[1].message = "What is the email of Manager #" + i + "?";
+        employeeBasics[2].message = "What is the github of Manager #" + i + "?";
+        let employee = await inquirer.prompt(employeeBasics);
+        employee.position = "Manager";
+        mgrs.push(employee);  // add each manager to an array of managers
     }
 
-    console.log(mgrNames);
+    console.log(mgrs);
 }
 
 main();
