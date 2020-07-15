@@ -80,9 +80,10 @@ In addition to `Employee`'s properties and methods, `Intern` will also have:
 
 <a name="Features"></a>
 ## Features
-1. any number of employees
-2. custom attributes based on employee type
-3. custom styling for each type of employee
+1. accepts project title as user input
+2. can accept any number of employees
+3. includes custom attributes based on employee type
+4. includes custom styling for each type of employee (manager, engineer, or intern)
 
 ### Template files
 

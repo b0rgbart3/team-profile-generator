@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;531;600;700;800;900&display=swap');
+
+
+body {
+    font-family: 'Heebo', sans-serif;
+    
+}
+.team-heading {
+    background-color:rgb(72, 72, 133);
+    color:white;
+    border-radius:0 !important;
+}
+
+.manager {
+    background-color:rgb(67, 67, 128);;
+    color:white;
+}
+
+.engineer {
+    background-color:rgb(124, 124, 189);;
+    color:white;
+}
+
+.intern {
+    background-color:rgb(124, 155, 189);;
+    color:white;
+}
+
+.card {
+    display:inline-block;
+    float:left;
+    box-sizing: border-box;
+    margin:10px;
+    box-shadow:0 0 20px gray;
+    border:0 !important;
+}
