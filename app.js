@@ -18,7 +18,15 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+// I'm including the option to send a JSON object via the command line so that I don't always
+// have to answer the CLI questions...
 
+// var myArgs = process.argv.slice(2);
+
+// let inputFile = null;
+// if (myArgs[2]) {
+//   inputFile = myArgs[2];
+// }
 // setup an array of questions to send to Inquirer
 // This array will include:  Questions about the Manager
 // A prompt about which type of team member they want to add
@@ -41,6 +49,7 @@ let continueQuestion = { type: "confirm", name: "more", message: "\nAre there mo
 let employees = [];
 
 async function main() {
+
 
     let moreEmployees = true;
     let employeeCount = 1;
@@ -100,6 +109,7 @@ async function main() {
         employeeCount++;
     }
 
+    console.log(employees);
     // After the user has input all employees desired, call the `render` function (required
     // above) and pass in an array containing all employee objects; the `render` function will
     // generate and return a block of HTML including templated divs for each employee!

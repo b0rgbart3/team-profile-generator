@@ -1,0 +1,27 @@
+[
+  Employee {
+    name: 'Hanna',
+    id: 1,
+    email: 'hanna@gmail.com',
+    officeNumber: '2',
+    role: 'Manager',
+    github: 'hannapsmith'
+  },
+  Employee {
+    name: 'Donna',
+    id: 2,
+    email: 'donna@gmail.com',
+    officeNumber: 0,
+    role: 'Engineer',
+    github: 'donnag'
+  },
+  Employee {
+    name: 'Bart',
+    id: 3,
+    email: 'b0rgBart3@gmail.com',
+    officeNumber: 0,
+    school: 'b0rgBart3',
+    role: 'Intern'
+  }
+]
+
