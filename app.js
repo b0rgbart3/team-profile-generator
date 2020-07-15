@@ -21,41 +21,65 @@ const inquirer = require("inquirer");
 // How many managers there are on this project and that way there can
 // be more than one.
 
-let q1 = {name: "employeeCount",message: "\nHow many people are there on this project?",
-        default: "1"};
+// let q1 = {name: "employeeCount",message: "\nHow many people are there on this project?",
+//         default: "1"};
+
+// we ask the role question first because it will change the list of other questions to ask
+let roleQuestion = { type: "list", name: "role", message:"What is this person's role in the project?", choices: [{name: "manager"},{name: "engineer"},{name: "intern"},]};
 
 let employeeBasics = [
-{ type: "list", name: "role", message:"What is this person's role in the project?", choices: [{name: "manager"},{name: "engineer"},{name: "intern"},]},
 { name: "name", message:"", default: "name", },
 { name: "email", message: "email", default: ""}, 
 { name: "github", message: "github", default: "github"},
 { name: "officeNumber", message: "officeNumber", default: "0"}];
 
+let continueQuestion = { type: "confirm", name: "more", message: "\nAre there more employees to add to this project?"};
+
 let employees = [];
-let employeeCount = 0;
 
 async function main() {
-    let employeeCount = await inquirer.prompt(q1);
-    
-    console.log(employeeCount);
-    employeeCount = parseInt(employeeCount.employeeCount); 
-    console.log(employeeCount);
 
-    for (var i = 1; i < employeeCount+1; i++) {
-        console.log("\nFor employee #" + i + ": -----------------------\n");
-        let employeeData = await inquirer.prompt(employeeBasics);
+    let moreEmployees = true;
+    let employeeCount = 1;
+    while (moreEmployees) {
+        
+        console.log("\nFor employee #" + employeeCount + ": -----------------------");
+
+        let roleAnswer = await inquirer.prompt(roleQuestion);
+        
+        let employeeQuestions = employeeBasics;
+        switch(roleAnswer.role) {
+            case "manager": 
+              employeeQuestions = employeeBasics;
+              break;
+            case "engineer": 
+              // For Engineers we don't need an officeNumber
+              employeeQuestions =[ employeeBasics[0],employeeBasics[1],employeeBasics[2]];
+              break;
+            case "intern": 
+               // For Interns we don't need an officeNumber
+               employeeQuestions =[ employeeBasics[0],employeeBasics[1],employeeBasics[2]];
+               // but we do need to ask for the name of their school
+               employeeQuestions.push( { name: "school", message:"What is the name of your school?", default: "" })
+              break;
+        }
+
+    
+
+        let employeeData = await inquirer.prompt(employeeQuestions);
 
         let thisEmployee = {};
         
-        switch(employeeData.role) {
+        // Create different objects based on the role
+        switch(roleAnswer.role) {
             case "manager":
-                thisEmployee = new Manager(employeeData.name, i-1, employeeData.email, employeeData.officeNumber, employeeData.github);
+                thisEmployee = new Manager(employeeData.name, employeeCount, employeeData.email, employeeData.officeNumber, employeeData.github);
                 break;
             case "engineer":
-                thisEmployee = new Engineer(employeeData.name, i-1, employeeData.email,  employeeData.github, employeeData.officeNumber);
+                thisEmployee = new Engineer(employeeData.name, employeeCount, employeeData.email,  employeeData.github, employeeData.officeNumber);
                 break;
             case "intern":
-                thisEmployee = new Intern(employeeData.name, i-1, employeeData.email, employeeData.github, employeeData.officeNumber);
+                thisEmployee = new Intern(employeeData.name, employeeCount, employeeData.email, employeeData.github, employeeData.officeNumber);
                 break;
         }
         
@@ -64,9 +88,21 @@ async function main() {
 
         employees.push(thisEmployee);  // add each manager to an array of managers
 
+        moreEmployeesAnswer = await inquirer.prompt(continueQuestion);
+       // console.log("More employees: " + moreEmployeesAnswer.more);
+        switch(moreEmployeesAnswer.more) {
+            case "y", "yes", 1, true:
+                moreEmployees = true;
+                
+                break;
+            case undefined, null, 0, "no", "n", false: 
+                moreEmployees = false;
+                break;
+        }
+        employeeCount++;
     }
-
-    console.log(employees);
+   
+   
     
 }
 
