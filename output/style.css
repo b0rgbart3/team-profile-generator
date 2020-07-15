@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;531;600;700;800;900&display=swap');
+
+
+body {
+    font-family: 'Heebo', sans-serif;
+    
+}
+.team-heading {
+    background-color:rgb(64, 64, 164);
+    color:white;
+}
+
+.manager {
+    background-color:rgb(105, 105, 208);;
+    color:white;
+}
+
+.card {
+    min-width:250px;
+    max-width:250px;
+    box-sizing: border-box;
+    margin:10px;
+}

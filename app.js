@@ -26,6 +26,7 @@ const render = require("./lib/htmlRenderer");
 // Questions for each team member will include:  name, position, 
 // email and github name
 
+let projectNameQuestion = {name: "projectName", message: "What is the name of your project?", default:""};
 // we ask the role question first because it will change the list of other questions to ask
 let roleQuestion = { type: "list", name: "role", message:"What is this person's role in the project?", choices: [{name: "manager"},{name: "engineer"},{name: "intern"},]};
 
@@ -48,6 +49,7 @@ async function main() {
 // Use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
+    let projectNameAnswer = await inquirer.prompt(projectNameQuestion);
 
     while (moreEmployees) {
         
@@ -101,7 +103,7 @@ async function main() {
     // After the user has input all employees desired, call the `render` function (required
     // above) and pass in an array containing all employee objects; the `render` function will
     // generate and return a block of HTML including templated divs for each employee!
-    let htmlBlock = render(employees);
+    let htmlBlock = render(employees, projectNameAnswer.projectName);
    // console.log(htmlBlock);
 
     // After you have your html, you're now ready to create an HTML file using the HTML
