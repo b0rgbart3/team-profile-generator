@@ -27,7 +27,7 @@ node app.js
 ```
 <a name="Live_Demo"></a>
 ## Live Demo
-<a href="output/index.html">View the actual HTML output page</a>
+<a href="output/team.html">View the actual HTML output page</a>
 
 <a name="User_Story"></a>
 ## User Story
