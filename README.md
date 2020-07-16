@@ -148,6 +148,7 @@ app.js         // Runs the application
 <a name="Tests"></a>
 ## Testing
 passed unit test: Employee.test.js, Engineer.test.js, Intern.test.js, and Manager.test.js
+![Tests Passed](tests_passed.jpg)
 
 <a name='License'></a>
 ## License
