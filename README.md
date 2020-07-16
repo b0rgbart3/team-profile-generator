@@ -27,7 +27,7 @@ node app.js
 ```
 <a name="Live_Demo"></a>
 ## Live Demo
-<a href="index.html">View the actual HTML output page</a>
+<a href="https://b0rgbart3.github.io/team-profile-generator/">View the actual HTML output page</a>
 
 <a name="User_Story"></a>
 ## User Story
