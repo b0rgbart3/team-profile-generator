@@ -19,7 +19,7 @@ node app.js
 ```
 <a name="Live_Demo"></a>
 ## Live Demo
-output/index.html
+output/team.html
 <a name='License'></a>
 ## License
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)

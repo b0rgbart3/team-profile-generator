@@ -124,7 +124,7 @@ async function main() {
 
     if (fs.existsSync("output")) {
         // Do something
-        fs.writeFile("output/index.html", htmlBlock, function() {console.log('Done writing to file.'); });
+        fs.writeFile("output/team.html", htmlBlock, function() {console.log('Done writing to file.'); });
     }
 
    
