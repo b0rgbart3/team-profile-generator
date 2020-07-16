@@ -2,9 +2,10 @@
 ## Template Engine
 
 A Node CLI that takes in information about employees for a project and generates an HTML webpage that displays summaries for each person. The user can input any number of team members, and they may be a mix of managers, engineers and interns.
-When the user has completed building the team, the application will create an HTML file that displays a nicely formatted team roster based on the information provided by the user, and output this to a file: output/index.html
+When the user has completed building the team, the application will create an HTML file that displays a nicely formatted team roster based on the information provided by the user, and output this to a file: output/team.html
 
-![HTML output](screenshot.jpg)
+![DEMO](team-profile-movie.gif)
+
 
 # Table of contents
 1. [Usage](#Usage)
@@ -113,6 +114,9 @@ The project generates a `team.html` page in the `output` directory, that display
   * Role
   * ID
   * Role-specific property (School, link to GitHub profile, or office number)
+
+
+![HTML output](screenshot.jpg)
 
 <!-- ## Bonus
 
