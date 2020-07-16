@@ -16,9 +16,10 @@ When the user has completed building the team, the application will create an HT
    - [Roster Output](#Roster_Output)
 5. [Technology](#Technology)
 6. [Tests](#Tests)
-7. [License](#License)
-8. [Credits](#Credits)
-9. [Badges](#Badges)
+7. [Badges](#Badges)
+8. [License](#License)
+9. [Credits](#Credits)
+
 
 <a name="Usage"></a>
 ## Usage
@@ -150,6 +151,11 @@ app.js         // Runs the application
 passed unit test: Employee.test.js, Engineer.test.js, Intern.test.js, and Manager.test.js
 ![Tests Passed](tests_passed.jpg)
 
+<a name="Badges"></a>
+## Badges
+ [![Generic badge](https://img.shields.io/badge/made_with-node.js-<COLOR>.svg)](https://shields.io/)
+
+
 <a name='License'></a>
 ## License
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
@@ -159,9 +165,6 @@ passed unit test: Employee.test.js, Engineer.test.js, Intern.test.js, and Manage
 ## Credits
 b0rgBart3@gmail.com
 
-<a name="Badges"></a>
-## Badges
- [![Generic badge](https://img.shields.io/badge/made_with-node.js-<COLOR>.svg)](https://shields.io/)
 
 **on github:** <a href='github.com/b0rgBart3'>b0rgBart3</a>
 
